@@ -38,7 +38,7 @@ export class OvnisclienteComponent implements OnInit {
       background: 'black',
     })
   }*/
-  clientes: any[] = new Array<any>();//   --> VIDEO COMPRADO
+  clientes: any[] = new Array<any>();//   --> VIDEO COMPRADOz
 
   constructor( private db: AngularFirestore //   --> VIDEO COMPRADO
      ) { }

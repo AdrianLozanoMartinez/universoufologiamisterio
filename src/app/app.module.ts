@@ -88,6 +88,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {ReactiveFormsModule} from '@angular/forms';
 import { VeradministradorComponent } from './paginas/home/veradministrador/veradministrador.component';
 import { CrearadministradorComponent } from './paginas/home/crearadministrador/crearadministrador.component';
+import { UsusuarioComponent } from './paginas/tarjetas/ususuario/ususuario.component';
+import { NormalComponent } from './paginas/tarjetas/normal/normal.component';
 
 
 @NgModule({
@@ -158,7 +160,9 @@ import { CrearadministradorComponent } from './paginas/home/crearadministrador/c
     SubidaComponent,
     MostrarComponent,
     VeradministradorComponent,
-    CrearadministradorComponent
+    CrearadministradorComponent,
+    UsusuarioComponent,
+    NormalComponent
   ],
   imports: [
     BrowserModule,
