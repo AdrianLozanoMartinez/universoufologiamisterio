@@ -1,0 +1,170 @@
+<!-- <h3 style="color:  rgb(104, 6, 91);"><u>Ufología</u> (<small style="color:  rgb(199, 11, 174);">Abducciones</small>)</h3>
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-success mr-5" routerLink="/abducciones"><i class="fa fa-arrow-left "></i>   Ver</button>
+        <button class="btn btn-danger " routerLink="/administrador">Regresas   <i class="fa fa-arrow-right "></i></button>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="guardar(coger)" #coger="ngForm">
+
+ <div class="form-group">
+    <label>Firebase ID</label>
+    <input type="text" class="form-control" placeholder="Firebase ID" disabled="disabled" name="id" [(ngModel)]="jd.id">
+    <small class="form-text text-muted">Este campo es autogenerado</small>
+</div> 
+
+<div class="form-group">
+    <label>Fecha</label>
+    <input type="date" class="form-control" placeholder="Fecha" name="fecha" [(ngModel)]="jd.fecha">
+</div>
+
+<div class="form-group">
+    <label>Título</label>
+    <input type="text" class="form-control" placeholder="Título" required name="titulo" [(ngModel)]="jd.titulo">
+</div>
+
+<div appDirectivageneral [archivos]="archivos" (mouseSobre)="estaSobreElemento = $event" [ngClass]="{ 'clase_especial_creada_por_mi': estaSobreElemento }">
+
+    <h4>Deje caer aquí los archivos</h4>
+    <img src="../../../../../../assets/imagenes/drop-images.png" width="100px" height="100px">
+</div>
+
+<table class="table">
+     <thead class="thead=dark">
+        <tr>
+            <th>Nombre archivo</th>
+            <th>Tamaño</th>
+            <th>Progreso</th>
+        </tr>
+    </thead> 
+
+    <thead>
+        <tr *ngFor="let archivo of archivos">
+            <td [ngClass]="{ 'text-green': archivo.progreso >= 100 }">Nombre: {{archivo.nombreArchivo}}</td>
+            <td>{{archivo.archivo.size / 1024 / 1024 | number: '.2-2'}} MB</td>
+            <td>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{ 'background': 'white', 'width': archivo.progreso + '%' }"></div>
+                </div>
+            </td>
+        </tr>
+    </thead>
+</table>
+ <div class="form-group">
+    <label>Imagen</label>
+    <input type="text" class="form-control" placeholder="Imagen" name="imagen" [(ngModel)]="jd.imagen">
+</div>
+
+<div class="form-group">
+    <label>Vídeo</label>
+    <input type="text" class="form-control" placeholder="Vídeo" name="video" [(ngModel)]="jd.video">
+</div> 
+
+<div class="form-group">
+    <label>Descripción</label>
+    <input type="text" class="form-control" placeholder="Descripción" name="descripcion" [(ngModel)]="jd.descripcion">
+</div>
+
+<div class="form-group form-group text-center">
+    <label>Novedad / No novedad</label>
+    <br>
+    <button *ngIf="jd.novedad" (click)="jd.novedad = false" class="btn btn-outline-success w-5 mr-5" type="button">¡¡¡Novedad!!!</button>
+    <button *ngIf="!jd.novedad" (click)="jd.novedad = true" class="btn btn-outline-info w-5 mr-5" type="button">Noticias</button>
+    <button type="submit" class="btn btn-dark w-25 " (click)="cargarImagenes()"><i class="fa fa-save"></i> Guardar</button>
+    <button class="btn btn-danger" (click)="limpiarArchivos()">Limpiar</button>
+</div>
+
+<hr>
+
+      <div class="form-group text-center">
+          
+      </div>
+    </form>
+  </div>
+</div>
+
+<br><br><br> -->
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <blockquote class="blockquote">
+            <p class="mb-0 h3 display-4">Administrador</p>
+            <footer class="blockquote-footer">Introduce <cite title="Source Title">los datos</cite> por ahora <cite title="Source Title">no podrás modificar ni borrar solo el webmaster</cite></footer>
+            <button class="btn btn-danger float-right" routerLink="/administrador">Volver al menú   <i class="fa fa-arrow-right "></i></button>
+            <button class="btn btn-success float-left" routerLink="/abducciones">Ver   </button>
+            <br>
+            <br>
+            <div class="card" style="width: 25rem">
+                    <div class="card-body">
+                        <form [formGroup]="formularioCliente">
+                            <div class="form group">
+                                <input class="form-control" name="titulo" formControlName="titulo" placeholder="Título">
+                                <!-- <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">¡¡¡Archivo requerido!!!</div> -->
+                            </div>
+                            <div class="text-center">
+                                <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
+                                <!-- (click)="fileUploader.click()" para cuando hagamos click elijamos imagen -->
+                                <!-- fileUploader lo cogemos de abajo #fileUploader-->
+                            </div>
+                
+                            <div class="form group">
+                                <label>Imagen</label>
+                                <input type="file" accept="image/*" class="form-control" #fileUploader  name="imageUrl" formControlName="imageUrl" (change)="subirImagen($event)">
+                                <!-- en ingles era showPreview -->
+                                <!-- image/png, image/jpg otra opción, pero mejor * porque engloba todos tipos de imagen -->
+                                <!-- <div class="text-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">¡¡¡Archivo requerido!!!</div> -->
+                                <!--Si las 2 funcioens del ts isSubmitted (es pulsado botón para grabar / subir datos) y formControls (imagen da error al ser requerido) sale el mensaje
+                                imageUrl es la variable que aparece en el formControlName y la nombramos aquí para señalar y usar este campo-->
+                            </div>
+                   
+                                <!-- <progressbar [value]="porcentajeSubida" type="danger" [striped]="true">{{porcentajeSubida}}%</progressbar> -->
+                                <!-- <div class="progress">
+                                    <div class="progress-bar w-75" [value]="porcentajeSubida" type="danger" [striped]="true" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">{{porcentajeSubida}}%</div>
+                                  </div> -->
+         
+                            <div class="form group">
+                                  <label for="descripcion"></label>
+                                  <textarea class="form-control" formControlName="descripcion" name="descripcion" id="descripcion" rows="3" placeholder="Descripción"></textarea>
+                                <!-- <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">¡¡¡Archivo requerido!!!</div> -->
+                            </div>
+                            <br>
+                            <div class="form group">
+                                <input class="form-control" formControlName="weburl" placeholder="Url de youtube o facebook" name="weburl">
+                                <!-- <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">¡¡¡Archivo requerido!!!</div> -->
+                            </div>
+
+                            <br>
+
+                            <div class="form group">
+                                <input class="form-control" type="date" formControlName="fecha" placeholder="Fecha" name="fecha">
+                                <!-- <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">¡¡¡Archivo requerido!!!</div> -->
+                            </div>
+                   
+
+                            <!-- <div class="form group">
+                                <select formControlName="categoria" class="form-control">
+                                    <option value="Animal">Animal</option>
+                                    <option value="Vehicle">Vehicle</option>
+                                    <option value="Bird">Bird</option>
+                                </select>
+                            </div> -->
+                            <div class="form-group form-group text-center">
+                                <br>
+                                <!-- <button *ngIf="jd" (click)="jd = false" class="btn btn-outline-success w-5 mr-5" type="button" >¡¡¡Novedad!!!</button>
+                                <button *ngIf="!jd" (click)="jd = true" class="btn btn-outline-info w-5 mr-5" type="button" >Noticias</button> -->
+                                <button type="submit" class="btn btn-dark w-25 center" (click)="agregar()"><i class="fa fa-save"></i> Guardar</button>
+                                <button class="btn btn-danger float-right" (click)="resetform()">Limpiar</button>
+                            </div>
+                            <!-- <div class="form-group">
+                                <button type="submit" class="btn btn-success float-right" (click)="agregar()">Submit</button>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+        </blockquote>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col">
+        <img class="rounded mx-auto d-block img-fluid" src="../../../assets/imagenes/introcanal.gif">
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 " *ngFor="let cliente of clientes">
+      <hr>
+      <div class="card-deck bg-black">
+          <div class="card">
+            <h1 class="card-title text-center"><u>{{cliente.titulo}}</u></h1>
+            <img class="card-img-top" [src]="cliente.imgUrl">
+            <!-- <div class="card" *ngFor="let dj of jd; let i = index"> -->
+                  <!-- <img class="card-img-top" *ngFor="let item of items | async"> -->
+    <div class="card-body">
+      <p class="card-text">{{cliente.descripcion}}</p>
+      <p class="card-text">{{cliente.weburl}}</p>
+    </div>
+    <div class="card-footer">
+      <!-- <label *ngIf="dj.novedad" class="badge badge-danger">¡¡¡Novedad!!!</label>
+      <label *ngIf="!dj.novedad" class="badge badge-primary">Noticias</label>
+      <br> -->
+      <small class="text-muted">{{cliente.fecha}}</small>
+      <br>
+      <!-- <button class="btn btn-info mr-1" [routerLink]="['/cma', cliente.id ]"><i class="fa fa-pencil"></i></button> -->
+      <!-- <button class="btn btn-danger" (click)="borrarUnElemento(dj, i)"><i class="fa fa-trash"></i></button> -->
+    </div>
+  
+              </div>
+          </div>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    
+  
+      <!-- <div *ngIf="variablecargando" class="alert aler-info text-center mt-3">
+      <h4 class="alert-heading">Cargando</h4>
+      <p>
+          <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+      </p>
+      <p class="mb-0">Espere por favor</p>
+      </div>
+  
+      <div *ngIf="!variablecargando && unomodel2.length === 0" class="alert aler-warnin text-center mt-3">
+      <h4 class="alert-heading">No hay registro</h4>
+      <p>
+          <i class="fa fa-exclamation fa-3x fa-fw"></i>
+      </p>
+      </div> -->

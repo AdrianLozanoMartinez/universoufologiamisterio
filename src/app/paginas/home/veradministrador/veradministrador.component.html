@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <blockquote class="blockquote">
+            <p class="mb-0 h3 display-4">Administrador</p>
+            <footer class="blockquote-footer">Introduce <cite title="Source Title">los datos</cite> por ahora <cite title="Source Title">no podrás modificar ni borrar solo el webmaster</cite></footer>
+            <button class="btn btn-success mr-5" routerLink="/crearadministrador/nuevo"><i class="fa fa-plus"></i>  Agregar</button>
+            <button class="btn btn-danger float-right" routerLink="/administrador">Volver al menú   <i class="fa fa-arrow-right "></i></button>
+            <div class="row">
+                <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 " *ngFor="let cliente of clientes">
+                  <hr>
+                  <div class="card-deck">
+                      <div class="card" >
+                        <h1 class="card-title text-center"><u>{{cliente.titulo}}</u></h1>
+                        <img class="card-img-top" [src]="cliente.imgUrl" >
+                        <!-- <div class="card" *ngFor="let dj of jd; let i = index"> -->
+                              <!-- <img class="card-img-top" *ngFor="let item of items | async"> -->
+                <div class="card-body">
+                  <p class="card-text">{{cliente.descripcion}}</p>
+                  <p class="card-text">{{cliente.weburl}}</p>
+                </div>
+                <div class="card-footer">
+                  <!-- <label *ngIf="dj.novedad" class="badge badge-danger">¡¡¡Novedad!!!</label>
+                  <label *ngIf="!dj.novedad" class="badge badge-primary">Noticias</label>
+                  <br> -->
+                  <small class="text-muted">{{cliente.fecha}}</small>
+                  <br>
+                  <!-- <button class="btn btn-info mr-1" [routerLink]="['/cma', cliente.id ]"><i class="fa fa-pencil"></i></button> -->
+                  <!-- <button class="btn btn-danger" (click)="borrarUnElemento(dj, i)"><i class="fa fa-trash"></i></button> -->
+                </div>
+              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>

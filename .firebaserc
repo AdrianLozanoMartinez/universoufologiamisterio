@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "universoufologiamisterios"
+  },
+  "targets": {
+    "universoufologiamisterios": {
+      "hosting": {
+        "Universodelaufologiaymisterios": [
+          "universoufologiamisterios"
+        ]
+      }
+    }
+  }
+}
